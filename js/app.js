@@ -1,7 +1,7 @@
 (function(){
     var app = angular.module('Universidad',[ ]);
 
-    app.controller('profesorCtrl',function($scope){
+    app.controller('profesorCtrl',['$scope',function($scope){
 
         $scope.profesor = profesorData;   
         $scope.editar = {};
@@ -239,9 +239,7 @@
                     }
                     }
             ]
-        }
-
-
+        };
         $scope.editarProfesor = function(){
             $scope.mostrarcaja = true;
             angular.copy($scope.profesor,$scope.editar);
@@ -286,7 +284,7 @@
             $scope.mostrarUsers = false; 
             $scope.mostrarTablaUsers = true;
         }
-    });
+    }]);
 
 
     var profesorData = {
