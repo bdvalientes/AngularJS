@@ -62,6 +62,57 @@
                 </div>
 
             </div>
+
+            <div class="row" ng-show="mostrarTablaUsers">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Identificacion</th>
+                        <th>Nombre</th>
+                        <th>Apodo</th>
+                        <th>Correo</th>
+                        <th>Sitio Web</th>
+                        <th>Compañia</th>                        
+                        <th>Acción</th>
+                    </tr>
+                    <tr ng-repeat="usuario in user.users">
+                        <td>{{usuario.id}}</td>
+                        <td>{{usuario.name}}</td>
+                        <td>{{usuario.username}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>{{usuario.website}}</td>
+                        <td>{{usuario.company.name}}</td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="editandoUser(usuario.id)">Editar</button>
+                            <button class="btn btn-danger" ng-click="eliminarCambiosUser(usuario.id)">Eliminar</button>
+                        </td>
+                    </tr>
+                </table>            
+            </div>
+            <div class="row" ng-show="mostrarUsers">
+                <div class="col-sm-6">
+                    <section class="panel">
+                        <div class="panel-body">
+                            Nombre: 
+                            <input type="text" class="form-control" ng-model="editarUser.name">
+                            <br>
+                            Apodo: 
+                            <input type="text" class="form-control" ng-model="editarUser.username">
+                            <br>
+                            Correo: 
+                            <input type="email" class="form-control" ng-model="editarUser.email">
+                            <br>
+                            Sitio web
+                            <input type="text" class="form-control" ng-model="editarUser.website">
+                            <br>
+                            Nombre Compañia
+                            <input type="text" class="form-control" ng-model="editarUser.company.name">
+                            <br>
+                            <button class="btn btn-primary" ng-click="guardarCambioUser(editarUser.id)">Guardar</button>
+                            <button class="btn btn-danger" ng-click="cancelarCambiosUser()">Cancelar</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
     </body>
 </html>
